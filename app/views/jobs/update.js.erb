@@ -1,4 +1,6 @@
 $('#claim-link').hide();
 $('#idk').hide();
-alert('in');
-$('#idk-show').html("<%= j render('claimed') %>");
+// $('#idk-show').html("<%= j render('claimed') %>");
+$('#why-not').html("<%= j render('complete_boolean') %>");
+$('#checks').hide();
+$('#checks').html("<%= j render('complete_pending') %>");

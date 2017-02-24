@@ -26,7 +26,7 @@ class JobsController < ApplicationController
   def update
     @job = Job.find(params[:id])
     if current_worker
-      if @job.update(completed: job_params[:completed], worker_id: current_worker.id)
+      if @job.update(completed: job_params[:completed], pending: job_params[:pending], worker_id: current_worker.id)
         respond_to do |format|
           format.html { redirect_to job_path(@job) }
           format.js
@@ -45,7 +45,7 @@ class JobsController < ApplicationController
 private
 
   def job_params
-    params.require(:job).permit(:title, :description, :completed)
+    params.require(:job).permit(:title, :description, :completed, :pending)
   end
 
 end

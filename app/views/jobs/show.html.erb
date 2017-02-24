@@ -1,8 +1,8 @@
 <h1> <%= @job.title %> </h1>
 
 <h3>Detail <%= @job.description %></h3>
-<h3>Completed <%= @job.completed %></h3>
-<h3>Pending <%= @job.pending %></h3>
+<h3 id="why-not"><%= render('complete_boolean') %></h3>
+<h3>In progress: <%= @job.pending %></h3>
 <div id="detail-id">
   <% if current_worker %>
     <div id="idk-show">
@@ -18,13 +18,13 @@
   <% end %>
 </div>
 
+<div id="checks">
+
+</div>
+
 
 <% if !@job.worker_id.nil? %>
 
-<%= form_for @job do |f| %>
-<%= f.check_box :completed %>
-<%= f.label :completed, @job.title %>
-<%= f.submit "Completed" %>
-<% end %>
+  <%= render('complete_pending') %>
 
 <% end %>

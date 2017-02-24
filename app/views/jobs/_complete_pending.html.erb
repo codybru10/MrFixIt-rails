@@ -1,0 +1,13 @@
+<%= form_for @job, remote: true do |f| %>
+  <%= f.hidden_field :pending %>
+  <%= f.check_box :completed %>
+  <%= f.label :completed, @job.title %>
+  <%= f.submit "Completed", id: 'complete1' %>
+<% end %>
+<br>
+<%= form_for @job do |f| %>
+  <%= f.hidden_field :completed %>
+  <%= f.check_box :pending %>
+  <%= f.label :pending, @job.title %>
+  <%= f.submit "In Progress" %>
+<% end %>
