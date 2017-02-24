@@ -1,5 +1,6 @@
 <p>No one has claimed this job!</p>
   <%= form_for @job, remote: true do |f| %>
     <%= f.hidden_field :completed %>
+    <%= f.hidden_field :pending %>
     <%= f.submit "Claim", id: "claim-link" %>
   <% end %>

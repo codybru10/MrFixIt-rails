@@ -1,7 +1,8 @@
 $('#claim-link').hide();
 $('#idk').hide();
-// $('#idk-show').html("<%= j render('claimed') %>");
+$('#email').hide();
+$('#idk-show').html("<%= j render('claimed') %>");
 $('#completed-boolean').html("<%= j render('complete_boolean') %>");
 $('#pending-boolean').html("<%= j render('pending_boolean') %>");
-$('#checks').hide();
+
 $('#checks').html("<%= j render('complete_pending') %>");

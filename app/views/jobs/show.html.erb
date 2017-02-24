@@ -6,10 +6,10 @@
 <div id="detail-id">
   <% if current_worker %>
     <div id="idk-show">
-
+      
     </div>
     <% if !@job.worker_id.nil? %>
-      <p>Claimed by: <%= @worker.email %></p>
+      <p id="email">Claimed by: <%= @worker.email %></p>
     <% else %>
       <div id="idk">
         <%= render('hide_info') %>
