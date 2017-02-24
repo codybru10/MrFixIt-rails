@@ -1,6 +1,4 @@
-RSpec.configure do |config|
-  config.include FactoryGirl::Syntax::Methods
-endclass ActiveRecord::Base
+class ActiveRecord::Base
   mattr_accessor :shared_connection
   @@shared_connection = nil
 
