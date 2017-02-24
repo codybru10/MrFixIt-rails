@@ -12,7 +12,6 @@ class JobsController < ApplicationController
   def show
     @job = Job.find(params[:id])
     @worker = Worker.where(id: @job.worker_id).first
-    binding.pry
   end
 
   def create
@@ -28,7 +27,10 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
     if current_worker
       if @job.update(pending: true, worker_id: current_worker.id)
-        redirect_to worker_path(current_worker)
+        respond_to do |format|
+          format.html { redirect_to job_path(@job) }
+          format.js
+        end
         flash[:notice] = "You've successfully claimed this job."
       else
         render :show
