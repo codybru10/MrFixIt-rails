@@ -1,8 +1,8 @@
 <h1> <%= @job.title %> </h1>
 
 <h3>Detail <%= @job.description %></h3>
-<h3 id="why-not"><%= render('complete_boolean') %></h3>
-<h3>In progress: <%= @job.pending %></h3>
+<h3 id="completed-boolean"><%= render('complete_boolean') %></h3>
+<h3 id="pending-boolean">In progress: <%= @job.pending %></h3>
 <div id="detail-id">
   <% if current_worker %>
     <div id="idk-show">
