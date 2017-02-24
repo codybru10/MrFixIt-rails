@@ -26,12 +26,11 @@ class JobsController < ApplicationController
   def update
     @job = Job.find(params[:id])
     if current_worker
-      if @job.update(pending: true, worker_id: current_worker.id)
+      if @job.update(completed: job_params[:completed], worker_id: current_worker.id)
         respond_to do |format|
           format.html { redirect_to job_path(@job) }
           format.js
         end
-        flash[:notice] = "You've successfully claimed this job."
       else
         render :show
         flash[:notice] = "Something went wrong!"
@@ -46,7 +45,7 @@ class JobsController < ApplicationController
 private
 
   def job_params
-    params.require(:job).permit(:title, :description)
+    params.require(:job).permit(:title, :description, :completed)
   end
 
 end

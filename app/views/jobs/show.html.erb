@@ -1,15 +1,14 @@
-<h1 id="title-hide"> <%= @job.title %> </h1>
+<h1> <%= @job.title %> </h1>
 
 <h3>Detail <%= @job.description %></h3>
 <h3>Completed <%= @job.completed %></h3>
 <h3>Pending <%= @job.pending %></h3>
-
 <div id="detail-id">
   <% if current_worker %>
     <div id="idk-show">
 
     </div>
-    <% if @job.pending %>
+    <% if !@job.worker_id.nil? %>
       <p>Claimed by: <%= @worker.email %></p>
     <% else %>
       <div id="idk">
@@ -18,3 +17,14 @@
     <% end %>
   <% end %>
 </div>
+
+
+<% if !@job.worker_id.nil? %>
+
+<%= form_for @job do |f| %>
+<%= f.check_box :completed %>
+<%= f.label :completed, @job.title %>
+<%= f.submit "Completed" %>
+<% end %>
+
+<% end %>

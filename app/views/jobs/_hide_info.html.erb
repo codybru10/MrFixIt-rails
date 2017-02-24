@@ -1,2 +1,5 @@
 <p>No one has claimed this job!</p>
-  <%= link_to "click here to claim it now", job_path(@job), :method => "patch", id: 'claim-link', remote: true %>
+  <%= form_for @job, remote: true do |f| %>
+    <%= f.hidden_field :completed %>
+    <%= f.submit "Claim", id: "claim-link" %>
+  <% end %>
