@@ -16,7 +16,12 @@ group :development, :test do
   gem 'launchy'
   gem 'pry'
   gem 'shoulda-matchers'
+  gem 'factory_girl_rails'
   gem 'simplecov', require: false
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'poltergeist'
+  gem 'selenium-webdriver'
 end
 
 group :development do

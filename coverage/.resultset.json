@@ -1,6 +1,13 @@
 {
   "RSpec": {
     "coverage": {
+      "/Users/Guest/Desktop/MrFixIt-rails/spec/models/job_spec.rb": [
+        1,
+        null,
+        1,
+        2,
+        null
+      ],
       "/Users/Guest/Desktop/MrFixIt-rails/spec/models/user_spec.rb": [
         1
       ],
@@ -12,6 +19,6 @@
         null
       ]
     },
-    "timestamp": 1487975775
+    "timestamp": 1487977003
   }
 }
