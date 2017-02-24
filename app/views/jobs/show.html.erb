@@ -1,10 +1,14 @@
 <h1> <%= @job.title %> </h1>
 
-<h3><%= @job.description %></h3>
+<h3>Detail <%= @job.description %></h3>
+<h3>Completed <%= @job.completed %></h3>
+<h3>Pending <%= @job.pending %></h3>
 
-<% if @job.pending %>
-  <p>Someone has already claimed this job; it's currently pending.</p>
-<% else %>
-<p>No one has claimed this job!</p>
-<%= link_to "click here to claim it now", job_path(@job), :method => "patch" %>
+<% if current_worker %>
+  <% if @job.pending %>
+    <p>Claimed by: <%= @worker.email %> </p>
+  <% else %>
+  <p>No one has claimed this job!</p>
+    <%= link_to "click here to claim it now", job_path(@job), :method => "patch", remote: true %>
+  <% end %>
 <% end %>

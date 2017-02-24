@@ -11,6 +11,8 @@ class JobsController < ApplicationController
 
   def show
     @job = Job.find(params[:id])
+    @worker = Worker.where(id: @job.worker_id).first
+    binding.pry
   end
 
   def create
